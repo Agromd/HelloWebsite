@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+   <title>Hello</title>
+   <link rel="stylesheet" type="text/css" href="Styles/style.css">
+   <link rel="stylesheet" type="text/css" href="Styles/adaptive.css">
+   <link rel="shortcut icon" href="Images/H.svg">
+</head>
+
+<body>
+
+   <!-- Loader -->
+   <section class="start-page">
+      <p class="text-hello">HELLO</p>
+
+      <a href="#Text"><button class="btn">About this Website</button></a>
+   </section>
+
+   <div class="AboutThisWebsiteText" id="Text">
+      <h2>So, what is this website about?</h2>
+      <p>This website was designed and created by <a href="https://www.instagram.com/vovafedi/" target="blank"
+            rel="noopener noreferrer">Vladimir
+            Fedin</a>. The
+         purpose of this website is to use
+         all my designers and coding skills. If you want to see something intresting here... there is nohting
+         intresting. But you can look at my coding skills if for some reason you are interested in it.<br><br>P.S. enjoy
+         it and
+         good luck!</p>
+   </div>
+   <!--image slider start-->
+
+   <div class="slider">
+      <div class="slides">
+         <!--radio buttons start-->
+         <input type="radio" name="radio-btn" id="radio1">
+         <input type="radio" name="radio-btn" id="radio2">
+         <input type="radio" name="radio-btn" id="radio3">
+         <input type="radio" name="radio-btn" id="radio4">
+         <!--radio buttons end-->
+         <!--slide images start-->
+         <div class="slide first">
+            <img src="Images/slider-image1.jpeg" alt="">
+         </div>
+         <div class="slide">
+            <img src="Images/slider-image2.jpeg" alt="">
+         </div>
+         <div class="slide">
+            <img src="Images/slider-image3.jpeg" alt="">
+         </div>
+         <div class="slide">
+            <img src="Images/slider-image4.jpeg" alt="">
+         </div>
+         <div class="AboutThisSliderText">
+            <h2>Hey, nice slider! No?</h2><br>
+            <p>Ok, this is an automatic slider, witch was made by <a href="https://www.instagram.com/vovafedi/"
+                  target="blank" rel="noopener noreferrer">me</a>. Images for this Slider I... I just search "cool
+               images"
+               and then this came
+               out. I think this are cool pictures, if you for some reason don't think so, then you can leave my website
+               and
+               search a better website witch would have better pictures! Good luck. :)
+            </p>
+         </div>
+         <!--slide images end-->
+         <!--automatic navigation start-->
+         <div class="navigation-auto">
+            <div class="auto-btn1"></div>
+            <div class="auto-btn2"></div>
+            <div class="auto-btn3"></div>
+            <div class="auto-btn4"></div>
+         </div>
+         <!--automatic navigation end-->
+      </div>
+      <!--manual navigation start-->
+      <div class="navigation-manual">
+         <label for="radio1" class="manual-btn"></label>
+         <label for="radio2" class="manual-btn"></label>
+         <label for="radio3" class="manual-btn"></label>
+         <label for="radio4" class="manual-btn"></label>
+      </div>
+      <!--manual navigation end-->
+   </div>
+   <!-- javascript for slider -->
+   <script type="text/javascript">
+      var counter = 1;
+      setInterval(function () {
+         document.getElementById('radio' + counter).checked = true;
+         counter++;
+         if (counter > 4) {
+            counter = 1;
+         }
+      }, 4000)
+   </script>
+   <!--image slider end-->
+
+
+   <!-- comment section -->
+   <section id="app">
+      <div class="container">
+         <div class="row">
+            <div class="col6">
+               <div class="comment">
+                  <p v-for="items in item" v-text="items"></p>
+               </div>
+               <!--end comment-->
+            </div>
+            <!--end col6-->
+         </div>
+         <!--end row-->
+         <div class="row">
+            <div class="col6"><textarea type="text" class="input" placeholder="Write a comment" v-model="newItem"
+                  @keyup.enter="addItem()"></textarea>
+               <button v-on:click="addItem()" class='primaryContained float-right' type="submit">Add Comment</button>
+            </div>
+            <!--end col-->
+         </div>
+         <!--end row-->
+      </div>
+      <!--end container-->
+   </section>
+   <!--end app-->
+   <!-- javascript for comment section -->
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js'></script>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+   <script> $(document).ready(function () {
+
+         $(".primaryContained").on('click', function () {
+            $(".comment").addClass("commentClicked");
+         });//end click
+         $("textarea").on('keyup.enter', function () {
+            $(".comment").addClass("commentClicked");
+         });//end keyup
+      });//End Function
+
+      new Vue({
+         el: "#app",
+         data: {
+            title: 'Add a comment',
+            newItem: '',
+            item: [],
+         },
+         methods: {
+            addItem() {
+               this.item.push(this.newItem);
+               this.newItem = "";
+            }
+         }
+
+      });
+   </script>
+   <footer>
+      <p class="FooterLogo">HELLO</p>
+      <div class="AboutThisFooterText" id="Text">
+         <p>This is just a footer. Footers are createrd to end website and usually developers leave links to social
+            networks belonging to them or their companies, and also they add information
+            about the site. And therefore I will not be an exception and in the lower right corner are my social
+            networks,
+            and in the upper left is
+            the "logo" of this website. </p>
+      </div>
+      <div class="footer-icons">
+         <a href="https://www.instagram.com/vovafedi/" target="blank" rel="noopener noreferrer"><span class="iconify"
+               data-icon="bxl:instagram"></span></a>
+         <a href="https://t.me/vflad" target="blank" rel="noopener noreferrer"><span class="iconify"
+               data-icon="bxl:telegram"></span></a>
+         <a href="mailto:vlmaxfd@gmail.com ?subject=Hello"><span class="iconify"
+               data-icon="carbon:email"></span></span></a>
+      </div>
+      <div class="copyright">©HelloWebsite - all rights reserved</div>
+   </footer>
+
+   <!-- Preloader -->
+   <div id="preloader" style="z-index: 3;">
+      <div class="box">
+         <div class="b b1"></div>
+         <div class="b b2"></div>
+         <div class="b b3"></div>
+         <div class="b b4"></div>
+      </div>
+   </div>
+   <script>
+
+      window.onload = function () {
+
+         let preloader = document.getElementById('preloader');
+         preloader.classList.add('hide-preloader');
+         setTimeout(function () {
+            preloader.classList.add('preloader-hidden');
+         }, 950)
+      }
+   </script>
+
+</body>
+
+</html>
